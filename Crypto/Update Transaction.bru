@@ -1,0 +1,17 @@
+meta {
+  name: Update Transaction
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/transactions/5
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "value": 20
+  }
+}

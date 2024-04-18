@@ -1,0 +1,17 @@
+meta {
+  name: Delete Transaction
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/transactions/2
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "value": 20
+  }
+}

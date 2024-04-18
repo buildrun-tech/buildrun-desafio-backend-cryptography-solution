@@ -1,0 +1,19 @@
+meta {
+  name: Create Transaction
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/transactions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userDocument": "444.555.789-00",
+    "creditCardToken": "2134234asasda",
+    "value": 750
+  }
+}
