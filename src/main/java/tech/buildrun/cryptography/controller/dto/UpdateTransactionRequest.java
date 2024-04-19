@@ -1,4 +1,4 @@
-package tech.buildrun.crypto.controller.dto;
+package tech.buildrun.cryptography.controller.dto;
 
 public record UpdateTransactionRequest(Long value) {
 }

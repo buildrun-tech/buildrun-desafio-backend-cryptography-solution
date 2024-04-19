@@ -1,7 +1,7 @@
-package tech.buildrun.crypto.entity;
+package tech.buildrun.cryptography.entity;
 
 import jakarta.persistence.*;
-import tech.buildrun.crypto.service.CryptoService;
+import tech.buildrun.cryptography.service.CryptoService;
 
 @Entity
 @Table(name = "tb_transactions")
@@ -22,18 +22,12 @@ public class TransactionEntity {
     private Long transactionValue;
 
     @Transient
-    private String plainTextUserDocument;
+    private String rawUserDocument;
 
     @Transient
-    private String plainTextCreditCardToken;
+    private String rawCreditCardToken;
 
     public TransactionEntity() {
-    }
-
-    public TransactionEntity(String userDocument, String creditCardToken, Long transactionValue) {
-        this.plainTextUserDocument = userDocument;
-        this.plainTextCreditCardToken = creditCardToken;
-        this.transactionValue = transactionValue;
     }
 
     public Long getTransactionId() {
@@ -68,31 +62,31 @@ public class TransactionEntity {
         this.transactionValue = transactionValue;
     }
 
-    public String getPlainTextUserDocument() {
-        return plainTextUserDocument;
+    public String getRawUserDocument() {
+        return rawUserDocument;
     }
 
-    public void setPlainTextUserDocument(String plainTextUserDocument) {
-        this.plainTextUserDocument = plainTextUserDocument;
+    public void setRawUserDocument(String rawUserDocument) {
+        this.rawUserDocument = rawUserDocument;
     }
 
-    public String getPlainTextCreditCardToken() {
-        return plainTextCreditCardToken;
+    public String getRawCreditCardToken() {
+        return rawCreditCardToken;
     }
 
-    public void setPlainTextCreditCardToken(String plainTextCreditCardToken) {
-        this.plainTextCreditCardToken = plainTextCreditCardToken;
+    public void setRawCreditCardToken(String rawCreditCardToken) {
+        this.rawCreditCardToken = rawCreditCardToken;
     }
 
     @PrePersist
     public void prePersist() {
-        this.encryptedUserDocument = CryptoService.encrypt(plainTextUserDocument);
-        this.encryptedCreditCardToken = CryptoService.encrypt(plainTextCreditCardToken);
+        this.encryptedUserDocument = CryptoService.encrypt(rawUserDocument);
+        this.encryptedCreditCardToken = CryptoService.encrypt(rawCreditCardToken);
     }
 
     @PostLoad
     public void postLoad() {
-        this.plainTextUserDocument = CryptoService.decrypt(encryptedUserDocument);
-        this.plainTextCreditCardToken = CryptoService.decrypt(encryptedCreditCardToken);
+        this.rawUserDocument = CryptoService.decrypt(encryptedUserDocument);
+        this.rawCreditCardToken = CryptoService.decrypt(encryptedCreditCardToken);
     }
 }

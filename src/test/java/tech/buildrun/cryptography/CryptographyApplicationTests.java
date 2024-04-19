@@ -1,10 +1,10 @@
-package tech.buildrun.crypto;
+package tech.buildrun.cryptography;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CryptoApplicationTests {
+class CryptographyApplicationTests {
 
 	@Test
 	void contextLoads() {

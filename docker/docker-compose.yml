@@ -8,5 +8,5 @@ services:
     environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=123
-      - MYSQL_DATABASE=mydb
+      - MYSQL_DATABASE=cryptodb
       - MYSQL_ROOT_PASSWORD=123

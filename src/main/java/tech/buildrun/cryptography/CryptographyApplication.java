@@ -1,12 +1,13 @@
-package tech.buildrun.crypto;
+package tech.buildrun.cryptography;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CryptoApplication {
+public class CryptographyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CryptoApplication.class, args);
+		SpringApplication.run(CryptographyApplication.class, args);
 	}
+
 }
