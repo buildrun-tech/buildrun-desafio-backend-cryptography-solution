@@ -6,6 +6,7 @@ import org.springframework.core.io.DefaultResourceLoader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+
 public class CryptoService {
 
     private static final StrongTextEncryptor encryptor;
@@ -14,7 +15,7 @@ public class CryptoService {
         try {
             var privateKey = new DefaultResourceLoader()
                     .getResource("classpath:password.txt")
-                    .getContentAsString(StandardCharsets.US_ASCII);
+                    .getContentAsString(StandardCharsets.UTF_8);
 
             encryptor = new StrongTextEncryptor();
             encryptor.setPassword(privateKey);
